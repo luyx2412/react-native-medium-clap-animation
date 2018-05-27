@@ -5,7 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
-import ClapButton from './components/clapButton';
+import ClapButton from './src/clapButton';
 
 
 type Props = {};
