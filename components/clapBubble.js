@@ -14,19 +14,20 @@ export default class ClapBubble extends Component {
     
     componentDidMount() {
         Animated.parallel([
-            Animated.timing(
-                this.state.yPosition,{
-                    toValue: -120,
-                    duration: 500
-                }
-            ),
-            Animated.timing(
-                this.state.opacity,{
-                    toValue : 1,
-                    duration : 500
-                }
-            )
-        ]).start();
+            Animated.timing(this.state.yPosition, {
+              toValue: -120,
+              duration: 500,
+            }),
+            Animated.timing(this.state.opacity, {
+              toValue: 1,
+              duration: 500,
+            })
+          ]
+        ).start(() => {
+            setTimeout(() => {
+              this.props.animationEnd(this.props.count)
+            }, 5000);
+          })
     }
     
     render() {
