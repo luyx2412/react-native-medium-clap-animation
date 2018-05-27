@@ -7,28 +7,37 @@ export default class ClapBubble extends Component {
     constructor() {
         super()
         this.state = {
-            yPosition : new Animated.Value(0)
-
+            yPosition : new Animated.Value(0),
+            opacity : new Animated.Value(0)
         }
     }
-
+    
     componentDidMount() {
-        Animated.timing(
-            this.state.yPosition,{
-                toValue: -120,
-                duration: 500
-            }
-        ).start();
+        Animated.parallel([
+            Animated.timing(
+                this.state.yPosition,{
+                    toValue: -120,
+                    duration: 500
+                }
+            ),
+            Animated.timing(
+                this.state.opacity,{
+                    toValue : 1,
+                    duration : 500
+                }
+            )
+        ]).start();
     }
-
+    
     render() {
         const animationStyles = {
-            transform : [{translateY : this.state.yPosition}]
+            transform : [{translateY : this.state.yPosition}],
+            opacity: this.state.opacity
         }
-
+    
         return (
             <Animated.View style={[styles.clapBubble , animationStyles]} >
-            
+                <Text style={styles.clapText}> +{this.props.count} </Text>
             </Animated.View>
         )
     }
@@ -43,5 +52,11 @@ const styles = StyleSheet.create ( {
         backgroundColor : '#66CCCC',
         bottom : 20,
         right : 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    clapText : {
+        color : 'white',
+        fontSize : 16
     }
 });
