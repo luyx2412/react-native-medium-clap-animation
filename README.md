@@ -18,6 +18,8 @@ Feel free to ask me questions on Linkedin [@saketkumar95](https://www.linkedin.c
 
 ![screenshot](./screenshot.gif)
 
+#### Liked the work? [Buy me a cup of coffee] (https://www.paypal.me/saketkumar95) :coffee:
+
 
 # License
 
